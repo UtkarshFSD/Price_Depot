@@ -5,15 +5,15 @@ import FooterNav from "../shared/FooterNav.astro";
 import Paragraph from "../shared/Paragraph.astro";
 const footerNav1 = [
     {
-        itemText:"Marketing",
+        itemText:"ReactJs",
         itemLink:"#"
     },
     {
-        itemText:"Analylitics",
+        itemText:"Mobile App Development",
         itemLink:"#"
     },
     {
-        itemText:"Commerce",
+        itemText:"Full Stack Development",
         itemLink:"#"
     },
     {
@@ -36,7 +36,7 @@ const footerSupport = [
         itemLink:"#"
     },
     {
-        itemText:"Contact",
+        itemText:"Contact Us",
         itemLink:"#"
     }
 ]
@@ -47,21 +47,14 @@ const footerCompany = [
         itemLink:"/about"
     },
     {
-        itemText:"Blog",
+        itemText:"Services",
         itemLink:"#"
     },
     {
-        itemText:"Jobs",
+        itemText:"Portfolio",
         itemLink:"#"
     },
-    {
-        itemText:"Parteners",
-        itemLink:"#"
-    },
-    {
-        itemText:"Jobs",
-        itemLink:"#"
-    }
+   
 ]
 const footerLegal = [
     {
@@ -108,7 +101,6 @@ const footerLegal = [
           </div>
       </div>
     <Container className="pb-8 relative overflow-hidden">
-        
         <span class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 blur-2xl opacity-20 w-24 h-16 sm:w-48 sm:h-36 rounded-full rotate-12 skew-x-6 bg-primary"></span>
         <div class="grid grid-cols-2 lg:grid-cols-3 lg:items-stretch gap-8 relative">
             <div class="col-span-2 lg:col-span-1 h-auto flex flex-col">
@@ -163,12 +155,12 @@ const footerLegal = [
 
             <GroupFooterNav>
                 <FooterNav title={"Company"} navItems={footerCompany}/>
-                <FooterNav title={"Solutions"} navItems={footerNav1}/>
+                <FooterNav title={"Technolgies"} navItems={footerNav1}/>
             </GroupFooterNav>
 
             <GroupFooterNav>
                 <FooterNav title={"Support"} navItems={footerSupport}/>
-                <FooterNav title={"Ressources"} navItems={footerLegal}/>
+                <!-- <FooterNav title={"Ressources"} navItems={footerLegal}/> -->
             </GroupFooterNav>
 
         </div>
