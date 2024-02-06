@@ -1,14 +1,12 @@
 ---
-import ContactForm from  '../../src/components/sections/ContactForm.jsx'
+import FAQAccordion from "../components/sections/FAQAccordian.jsx";
 import Navbar from "../components/elements/Navbar.astro";
 import Footer from "../components/elements/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-
 <Layout title="Welcome to AgileGeeks">
-   
-    <ContactForm client:visible />
-    
-    
+  <FAQAccordion client:only />
 </Layout>
+
+
