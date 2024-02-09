@@ -40,10 +40,6 @@ console.log();
       "[data-switch-theme]"
     ) as HTMLButtonElement;
 
-    console.log(
-      "document.documentElement.classList",
-      document.getElementsByTagName("html")[0]
-    );
     if (
       localStorage.getItem("appTheme") === "dark" ||
       (!("appTheme" in localStorage) &&

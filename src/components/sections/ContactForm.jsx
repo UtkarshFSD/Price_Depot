@@ -58,13 +58,59 @@ const ContactForm = () => {
     }
   };
 
+  const real =
+    typeof window !== "undefined" && localStorage.getItem("appTheme");
+  var currentTheme;
+  const [theme, setTheme] = useState(real);
+  useEffect(() => {
+    const callback = function (mutationsList, observer) {
+      for (const mutation of mutationsList) {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          const targetElement = mutation.target;
+          currentTheme = targetElement.classList.contains("dark")
+            ? "dark"
+            : "light";
+          setTheme(currentTheme);
+        }
+      }
+    };
+
+    const observer = new MutationObserver(callback);
+    const config = {
+      attributes: true,
+      childList: false,
+      subtree: false,
+      attributeFilter: ["class"],
+    };
+    const targetNode = document.documentElement;
+
+    observer.observe(targetNode, config);
+
+    return () => observer.disconnect();
+  }, [currentTheme]);
+
+  console.log("theme", typeof theme);
+
   return (
-    <div class="w-full px-4 py-10 mt-10">
+    <div
+      class={`w-full px-4 py-10 mt-10 ${
+        theme === "dark" ? "bg-black-900" : "bg-white"
+      }`}
+    >
       <form
         onSubmit={handleSubmit}
-        class="max-w-2xl mx-auto bg-white  rounded-md shadow-lg p-5 "
+        class={`max-w-2xl mx-auto ${
+          theme === "dark" ? "bg-gray-500" : "bg-white"
+        } rounded-md shadow-lg p-5 `}
       >
-        <h2 className="text-[24px] mb-4 font-[600] text-gray-700">
+        <h2
+          class={`text-[24px] mb-4 font-[700] ${
+            theme === "dark" ? "text-white" : "text-gray-700"
+          } `}
+        >
           Contact Us
         </h2>
 
@@ -78,7 +124,7 @@ const ContactForm = () => {
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.name && (
-            <p className="text-red-500 text-xs italic">{errors.name}</p>
+            <p class="text-red-500 text-xs italic">{errors.name}</p>
           )}
         </div>
 
@@ -92,7 +138,7 @@ const ContactForm = () => {
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.email && (
-            <p className="text-red-500 text-xs italic">{errors.email}</p>
+            <p class="text-red-500 text-xs italic">{errors.email}</p>
           )}
           <input
             type="numeric"
@@ -103,9 +149,7 @@ const ContactForm = () => {
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.contactNumber && (
-            <p className="text-red-500 text-xs italic">
-              {errors.contactNumber}
-            </p>
+            <p class="text-red-500 text-xs italic">{errors.contactNumber}</p>
           )}
         </div>
 
@@ -119,15 +163,15 @@ const ContactForm = () => {
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           ></textarea>
           {errors.ideaDescription && (
-            <p className="text-red-500 text-xs italic">
-              {errors.ideaDescription}
-            </p>
+            <p class="text-red-500 text-xs italic">{errors.ideaDescription}</p>
           )}
         </div>
 
         <div class="mb-4">
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            class={`block ${
+              theme === "dark" ? "text-white" : "text-gray-700"
+            } text-sm font-bold mb-2`}
             htmlFor="file-upload"
           >
             Attach file (less than 10MB)
@@ -140,7 +184,7 @@ const ContactForm = () => {
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           />
           {errors.file && (
-            <p className="text-red-500 text-xs italic">{errors.file}</p>
+            <p class="text-red-500 text-xs italic">{errors.file}</p>
           )}
         </div>
 
@@ -153,11 +197,15 @@ const ContactForm = () => {
               onChange={handleChange}
               class="form-checkbox h-5 w-5 text-gray-600"
             />
-            <span class="ml-2 text-gray-700 text-sm">
+            <span
+              class={`ml-2 ${
+                theme === "dark" ? "text-white" : "text-gray-700"
+              } text-sm`}
+            >
               Keep me updated of the upcoming technology trends
             </span>
             {errors.name && (
-              <p className="text-red-500 text-xs italic">{errors.name}</p>
+              <p class="text-red-500 text-xs italic">{errors.name}</p>
             )}
           </label>
         </div>
@@ -166,6 +214,7 @@ const ContactForm = () => {
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
+            disabled={!formData.subscribe}
           >
             Submit
           </button>

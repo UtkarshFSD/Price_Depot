@@ -34,12 +34,41 @@ const faqData = [
 ];
 
 const FAQAccordionItem = ({ faq, onToggle, isOpen }) => {
-  const [theme, setTheme] = useState("light");
+  const real =
+    typeof window !== "undefined" && localStorage.getItem("appTheme");
 
+  var currentTheme;
+  const [theme, setTheme] = useState(real);
   useEffect(() => {
-    const storedTheme = localStorage.getItem("appTheme");
-    setTheme(storedTheme || "light");
-  }, []);
+    const callback = function (mutationsList, observer) {
+      for (const mutation of mutationsList) {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          const targetElement = mutation.target;
+          currentTheme = targetElement.classList.contains("dark")
+            ? "dark"
+            : "light";
+          setTheme(currentTheme);
+        }
+      }
+    };
+
+    const observer = new MutationObserver(callback);
+    const config = {
+      attributes: true,
+      childList: false,
+      subtree: false,
+      attributeFilter: ["class"],
+    };
+    const targetNode = document.documentElement;
+
+    observer.observe(targetNode, config);
+
+    return () => observer.disconnect();
+  }, [currentTheme]);
+
   return (
     <div
       class={`border-b rounded-lg p-4 ${
@@ -88,12 +117,40 @@ const FAQAccordion = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const [theme, setTheme] = useState("light");
-  console.log("theme", theme);
+  const real =
+    typeof window !== "undefined" && localStorage.getItem("appTheme");
+ 
+  var currentTheme;
+  const [theme, setTheme] = useState(real);
   useEffect(() => {
-    const storedTheme = localStorage.getItem("appTheme");
-    setTheme(storedTheme || "light");
-  }, [theme]);
+    const callback = function (mutationsList, observer) {
+      for (const mutation of mutationsList) {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "class"
+        ) {
+          const targetElement = mutation.target;
+          currentTheme = targetElement.classList.contains("dark")
+            ? "dark"
+            : "light";
+          setTheme(currentTheme);
+        }
+      }
+    };
+
+    const observer = new MutationObserver(callback);
+    const config = {
+      attributes: true,
+      childList: false,
+      subtree: false,
+      attributeFilter: ["class"],
+    };
+    const targetNode = document.documentElement;
+
+    observer.observe(targetNode, config);
+
+    return () => observer.disconnect();
+  }, [currentTheme]);
 
   return (
     <div class="w-full px-4 py-10 mt-10 ">
