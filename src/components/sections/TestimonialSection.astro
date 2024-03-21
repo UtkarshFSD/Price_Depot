@@ -1,0 +1,16 @@
+---
+import Testimonial from "./Testimonial.jsx";
+import Title from "../shared/Title.astro";
+import Layout from "../../layouts/Layout.astro";
+import Container from "../shared/Container.astro";
+---
+
+<Container className="space-y-8">
+  <div class="text-center max-w-3xl mx-auto">
+    <Title>First-Hand Opinions of Clients on Their Partnership Experience</Title
+    >
+  </div>
+  <div>
+      <Testimonial client:only />
+  </div>
+</Container>
