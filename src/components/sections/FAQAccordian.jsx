@@ -103,7 +103,7 @@ const FAQAccordion = () => {
   };
 
   return (
-    <div className="w-full px-4 py-10 mt-10">
+    <div className="w-full px-4 py-10 mt-24">
       <div className={`w-3/4 mx-auto ${theme === "dark" ? "bg-black-700" : "bg-white"} rounded-md shadow-md pt-3 transition duration-300 ease-in-out`}>
         <h1 className={`text-[36px] font-bold text-center mb-10 mt-6 ${theme === "dark" ? "text-white" : "text-gray-800"}`}>
           Frequently Asked Questions

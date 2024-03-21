@@ -96,7 +96,7 @@ const ContactForm = () => {
 
   return (
     <div
-      class={`w-full px-4 py-10 mt-10 ${
+      class={`w-full px-4 py-10 mt-24 ${
         theme === "dark" ? "bg-black-900" : "bg-white"
       }`}
     >
