@@ -6,6 +6,7 @@ import HowItWorks from "../components/sections/HowItWorks.jsx";
 import ByNumber from "../components/sections/ByNumber.astro";
 import AboutTeam from "../components/sections/AboutTeam.jsx";
 import TestimonialSection from "../components/sections/TestimonialSection.astro";
+import NewsLetter from "../components/sections/services/NewsLetter";
 ---
 
 <Layout title="Welcome to AgileGeeks">
@@ -16,5 +17,6 @@ import TestimonialSection from "../components/sections/TestimonialSection.astro"
     <ByNumber />
     <AboutTeam client:only />
     <TestimonialSection />
+    <NewsLetter/>
   </main>
 </Layout>

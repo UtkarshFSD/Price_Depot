@@ -1,4 +1,4 @@
-import Check from "../../../public/icons/check.svg";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 
 const AboutTeam = () => {
   const pointsAboutTeam = [
@@ -19,7 +19,7 @@ const AboutTeam = () => {
 
       <div class="w-1/3">
         <div class="flex flex-col gap-[20px]">
-          <button className="mb-4 text-lg font-semibold text-pink-600 border-pink-600 bg-pink-100 p-3 rounded-xl w-fit">
+          <button className="mb-4 text-lg font-semibold text-heading-1  p-3 rounded-xl bg-gradient-to-tr from-blue-600 to-green-400 w-fit">
             ABOUT US
           </button>
           <h1 class="text-heading-1 font-semibold text-2xl sm:text-3xl md:text-4xl">
@@ -34,11 +34,9 @@ const AboutTeam = () => {
           </p>
           <div>
             {pointsAboutTeam.map((point, index) => (
-              <div key={index}>
-               <img src={Check} alt="Check" className="inline-block mr-2 " />
-                <p class="text-lg text-heading-3 font-medium">
-                  {point}
-                </p>
+              <div key={index} class="flex gap-2 mb-4">
+                <CheckCircleOutlineIcon className="text-blue-600 mr-2" />
+                <p class="text-lg text-heading-3 font-medium">{point}</p>
               </div>
             ))}
           </div>
