@@ -17,8 +17,8 @@ const AboutInfo = () => {
       <div class="max-w-screen-2xl w-full flex flex-col gap-24">
         {aboutInfoData?.map((aboutInfo) => (
           <div class="flex justify-between items-start">
-            <h1 class="text-5xl font-extrabold w-2/5">{aboutInfo?.title}</h1>
-            <p class="text-2xl font-medium w-3/5">{aboutInfo?.content}</p>
+            <h1 class="text-5xl text-heading-1 font-extrabold w-2/5">{aboutInfo?.title}</h1>
+            <p class="text-lg md:text-2xl text-heading-3 font-medium w-3/5">{aboutInfo?.content}</p>
           </div>
         ))}
       </div>

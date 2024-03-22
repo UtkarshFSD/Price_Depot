@@ -14,7 +14,7 @@ const AboutUsMain = () => {
             <h1 class="text-white font-extrabold text-4xl/tight sm:text-5xl/tight md:text-6xl/tight xl:text-7xl/tight">
               Transforming Your Digital Identity With Innovation
             </h1>
-            <p class="text-white font-medium text-2xl mt-6">
+            <p class="text-white font-medium md:text-2xl mt-6 text-lg">
               We transform visions into vibrant digital realities. Specializing
               in web design and development, we ensure your digital presence is
               as unique as your brand, making lasting impressions in the digital
