@@ -5,6 +5,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
+				'body-reverse': "rgb(var(--color-body-reverse))",
 				body: "rgb(var(--color-bg))",
 				"box-bg": "rgb(var(--color-box))",
 				"box-shadow": "rgb(var(--box-sd))",
@@ -13,6 +14,9 @@ module.exports = {
 				"heading-1": "rgb(var(--heading-1))",
 				"heading-2": "rgb(var(--heading-2))",
 				"heading-3": "rgb(var(--heading-3))",
+				"heading-1-reverse": "rgb(var(--heading-1-reverse))",
+				"heading-2-reverse": "rgb(var(--heading-2-reverse))",
+				"heading-3-reverse": "rgb(var(--heading-3-reverse))",
 			},
 			screens:{
 				midmd:"880px"
