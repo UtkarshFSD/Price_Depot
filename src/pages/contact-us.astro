@@ -1,8 +1,14 @@
 ---
-import ContactForm from "../components/sections/ContactForm.jsx";
+import ContactForm from "../components/sections/contact/ContactForm.jsx";
 import Layout from "../layouts/Layout.astro";
+import NewsLetter from '../components/sections/services/NewsLetter'
+import HeroSection from "../components/sections/contact/HeroSection";
+
 ---
 
 <Layout title="Welcome to AgileGeeks">
+  <HeroSection/>
   <ContactForm client:only />
+  <NewsLetter client:only/>
 </Layout>
+../components/sections/contact/ContactForm.jsx
