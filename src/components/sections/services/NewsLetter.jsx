@@ -8,7 +8,7 @@ const Testimonial = () => {
     alert(`Subscribing with email: ${email}`);
   };
   return (
-    <Container>
+    <div className="mr-28 ml-28 mt-12">
       <Card className="relative">
         <figure className=" absolute bg-no-repeat bg-cover w-full rounded-2xl z-10">
           <img
@@ -61,7 +61,7 @@ const Testimonial = () => {
           </div>
         </div>
       </Card>
-    </Container>
+    </div>
   );
 };
 

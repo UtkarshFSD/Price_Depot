@@ -57,7 +57,7 @@ const ServicesBody = () => {
           ))}
         </div>
         <div class="w-full h-80 sm:h-96 midmd:h-full relative">
-          <span class="absolute w-full aspect-[9/5]  rounded-full bg-gradient-to-tr from-[#8573f0] to-[#8573f0] blur-2xl opacity-30  right-10 bottom-28"></span>
+          <span class="absolute w-full aspect-[9/5]  rounded-full bg-gradient-to-tr from-[#8573f0] to-[#8573f0] blur-2xl opacity-10  right-10 bottom-28"></span>
         </div>
       </div>
     </div>
