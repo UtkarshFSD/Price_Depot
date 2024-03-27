@@ -3,16 +3,30 @@ import Layout from "../layouts/Layout.astro";
 import PortfolioMain from "../components/sections/portfolio/PortfolioMain.jsx";
 import DigitalPotential from "../components/sections/portfolio/DigitalPotential";
 import PortfolioCaseStudy from "../components/sections/portfolio/PortfolioCaseStudy.jsx";
-import {portfolioCaseStudy, portfolioEliteBrands, portfolioCaseStudyBottom} from "../utils/data.js";
+import {
+  portfolioCaseStudy,
+  portfolioEliteBrands,
+  portfolioCaseStudyBottom,
+  portfolioTalkToExperts,
+} from "../utils/data.js";
 import PortfolioConnectBox from "../components/sections/portfolio/PortfolioConnectBox.jsx";
 ---
 
 <Layout title="Welcome to AgileGeeks">
-  <main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">  
-   <PortfolioMain />
-   <PortfolioCaseStudy caseData={portfolioCaseStudy} />
-   <PortfolioConnectBox boxData={portfolioEliteBrands} />
-   <PortfolioCaseStudy caseData={portfolioCaseStudyBottom} />
-   <DigitalPotential/>
+  <main class="flex flex-col gap-y-20 md:gap-y-32 overflow-hidden">
+    <PortfolioMain />
+    {
+      portfolioCaseStudy?.length > 0 && (
+        <PortfolioCaseStudy caseData={portfolioCaseStudy} />
+      )
+    }
+    <PortfolioConnectBox boxData={portfolioEliteBrands} />
+    {
+      portfolioCaseStudyBottom?.length > 0 && (
+        <PortfolioCaseStudy caseData={portfolioCaseStudyBottom} />
+      )
+    }
+    <DigitalPotential />
+    <PortfolioConnectBox boxData={portfolioTalkToExperts} />
   </main>
 </Layout>

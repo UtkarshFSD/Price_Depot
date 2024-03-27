@@ -160,5 +160,10 @@ const portfolioCaseStudyBottom = [
     },
 ]
 
+const portfolioTalkToExperts = {
+    heading: "Put our full stack development experience of solving the challenges of FinTech, eCommerce, Healthcare, Aviation, and 20+ other industries to your benefit",
+    buttonText: "Talk to Our Experts"
+}
 
-export { services, portfolioCaseStudy, portfolioEliteBrands, portfolioCaseStudyBottom };
+
+export { services, portfolioCaseStudy, portfolioEliteBrands, portfolioCaseStudyBottom, portfolioTalkToExperts };
